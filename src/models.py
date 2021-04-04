@@ -11,7 +11,10 @@ Base = declarative_base()
 
 class User(Base):
     __tablename__ = 'user'
-    iduser = Column(Integer, primary_key=True)
+    # Here we define columns for the table person
+    # Notice that each column is also a normal Python instance attribute.
+    id= Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True)
     username = Column(String(250), nullable=False)
     password= Column(String(50), primary_key=True)
 
@@ -19,7 +22,7 @@ class People(Base):
     __tablename__ = 'people'
     # Here we define columns for the table person
     # Notice that each column is also a normal Python instance attribute.
-    id_people = Column(Integer, primary_key=True)
+    id= Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
     height= Column(Integer, primary_key=True)
     mass= Column(Integer, primary_key=True)
@@ -35,7 +38,7 @@ class People(Base):
 
 class FavPeople(Base):
     __tablename__ = 'favpeople'
-    id_favper= Column(Integer, primary_key=True)
+    id= Column(Integer, primary_key=True)
     id_people = Column(Integer, ForeignKey('people.id_people'))
     people = relationship(People)
     iduser = Column(Integer, ForeignKey('user.iduser'))
@@ -43,7 +46,7 @@ class FavPeople(Base):
 
 class Planets(Base):
     __tablename__ = 'planets'
-    id_planets = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
     diameter= Column(Integer, nullable=False)
     rotation_period= Column(Integer, nullable=False)
@@ -59,7 +62,7 @@ class Planets(Base):
 
 class FavPlanets(Base):
     __tablename__ = 'favplanets'
-    idfavpla= Column(Integer, primary_key=True)
+    id= Column(Integer, primary_key=True)
     idplaneta = Column(Integer, ForeignKey('planets.id_planets'))
     planets = relationship(Planets)
     iduser = Column(Integer, ForeignKey('user.iduser'))
