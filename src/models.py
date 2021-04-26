@@ -13,7 +13,6 @@ class User(Base):
     __tablename__ = 'user'
     # Here we define columns for the table person
     # Notice that each column is also a normal Python instance attribute.
-    id= Column(Integer, primary_key=True)
     id = Column(Integer, primary_key=True)
     username = Column(String(250), nullable=False)
     password= Column(String(50), primary_key=True)
